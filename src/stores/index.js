@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
-import { userReducer } from '../reducers'
+import { feedReducer } from '../reducers'
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * *
 	This is a store with one reducer: userReducer. When 
@@ -12,31 +12,31 @@ import { userReducer } from '../reducers'
 var store
 export default {
 
-	configure: (initialState) => { // initialState can be null
-		
-		const reducers = combineReducers({ // insert reducers here
-			user: userReducer
-		})
+   configure: (initialState) => { // initialState can be null
 
-		if (initialState){
-			store = createStore(
-			    reducers,
-			    initialState,
-			    applyMiddleware(thunk)
-			)
+      const reducers = combineReducers({ // insert reducers here
+         feed: feedReducer
+      })
 
-			return store
-		}
+      if (initialState) {
+         store = createStore(
+            reducers,
+            initialState,
+            applyMiddleware(thunk)
+         )
 
-		store = createStore(
-		    reducers,
-		    applyMiddleware(thunk)
-		)
+         return store
+      }
 
-		return store
-	},
+      store = createStore(
+         reducers,
+         applyMiddleware(thunk)
+      )
 
-	currentStore: () => {
-		return store
-	}
+      return store
+   },
+
+   currentStore: () => {
+      return store
+   }
 }

@@ -12,7 +12,7 @@
 if (false) { var throwOnDirectAccess, isValidElement, REACT_ELEMENT_TYPE; } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(27)();
+  module.exports = __webpack_require__(30)();
 }
 
 
@@ -5322,7 +5322,7 @@ module.exports = ret;
 
 },{"./es5":13}]},{},[4])(4)
 });                    ;if (typeof window !== 'undefined' && window !== null) {                               window.P = window.Promise;                                                     } else if (typeof self !== 'undefined' && self !== null) {                             self.P = self.Promise;                                                         }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11), __webpack_require__(5), __webpack_require__(37).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(14), __webpack_require__(5), __webpack_require__(40).setImmediate))
 
 /***/ }),
 /* 2 */
@@ -5342,11 +5342,11 @@ if (typeof window !== 'undefined') { // Browser window
   root = this;
 }
 
-var Emitter = __webpack_require__(42);
-var RequestBase = __webpack_require__(41);
-var isObject = __webpack_require__(12);
-var ResponseBase = __webpack_require__(40);
-var Agent = __webpack_require__(38);
+var Emitter = __webpack_require__(45);
+var RequestBase = __webpack_require__(44);
+var isObject = __webpack_require__(15);
+var ResponseBase = __webpack_require__(43);
+var Agent = __webpack_require__(41);
 
 /**
  * Noop.
@@ -6258,7 +6258,7 @@ request.put = function(url, data, fn) {
 
 
 if (true) {
-  module.exports = __webpack_require__(56);
+  module.exports = __webpack_require__(58);
 } else {}
 
 
@@ -6348,16 +6348,23 @@ module.exports = invariant;
 
 /***/ }),
 /* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var superagent=__webpack_require__(2),Promise=__webpack_require__(1),StripeUtils=__webpack_require__(38),Auth=__webpack_require__(37),IndexDB=__webpack_require__(13),Functions=__webpack_require__(36),Platform=__webpack_require__(35),TurboStorage=__webpack_require__(34),TurboDatastore=__webpack_require__(33),Vector=__webpack_require__(32),Vertex=__webpack_require__(31),Microservice=function(e){var r={site_id:e.site_id,turbo_url:"https://turbo-dashboard.herokuapp.com",turbo_platform_url:"https://platform.turbo360-vector.com",base_url:"https://velocity-microservices.herokuapp.com",turbo_app_header:"Turbo-App-Id"},t=StripeUtils(r),i=TurboDatastore(r),u=Auth(r),o=Functions(r),a=Platform(r),s=TurboStorage(r),c=Vector(r),p=Vertex(r);return{fetch:i.fetch,fetchOne:i.fetchOne,create:i.create,update:i.update,remove:i.remove,updateEntity:i.updateEntity,removeEntity:i.removeEntity,login:u.login,logout:u.logout,createUser:u.createUser,currentUser:u.currentUser,fetchUser:u.fetchUser,updateUser:u.updateUser,deleteUser:u.deleteUser,createStripeCharge:t.createStripeCharge,createStripeAccount:t.createStripeAccount,recurringCharge:t.recurringCharge,initializeStripe:t.initializeStripe,submitStripeCharge:t.submitStripeCharge,submitStripeCard:t.submitStripeCard,executeFunction:o.executeFunction,site:a.site,fetchSites:a.fetchSites,uploadFile:s.uploadFile,runVector:c.runVector,pageData:p.pageData}};module.exports=Microservice;
+
+/***/ }),
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/lodash-es/isPlainObject.js + 8 modules
-var isPlainObject = __webpack_require__(9);
+var isPlainObject = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/symbol-observable/es/index.js
-var es = __webpack_require__(8);
+var es = __webpack_require__(9);
 
 // CONCATENATED MODULE: ./node_modules/redux/es/createStore.js
 
@@ -6904,11 +6911,11 @@ if (false) {}
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global, module) {/* harmony import */ var _ponyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
+/* WEBPACK VAR INJECTION */(function(global, module) {/* harmony import */ var _ponyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
 /* global window */
 
 
@@ -6927,16 +6934,16 @@ if (typeof self !== 'undefined') {
 var result = Object(_ponyfill_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(root);
 /* harmony default export */ __webpack_exports__["a"] = (result);
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(5), __webpack_require__(25)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(5), __webpack_require__(28)(module)))
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/lodash-es/_freeGlobal.js
-var _freeGlobal = __webpack_require__(58);
+var _freeGlobal = __webpack_require__(60);
 
 // CONCATENATED MODULE: ./node_modules/lodash-es/_root.js
 
@@ -7181,538 +7188,7 @@ function isPlainObject(value) {
 
 
 /***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Promise=__webpack_require__(1),superagent=__webpack_require__(2),helper=__webpack_require__(4),IndexDB=function(e){var r=e;return{dbTransaction:function(e){if("undefined"==typeof window)return null;if(window){if(null==r.site_id){var n=new Error("Please Set Your TURBO_APP_ID");return void e(n,null)}if(r.site_id.length<20){var n=new Error("Please Set Your TURBO_APP_ID");return void e(n,null)}var t=window.indexedDB||window.mozIndexedDB||window.webkitIndexedDB||window.msIndexedDB||window.shimIndexedDB;if(null==t)return null;if(void 0==t)return null;var o=t.open("turbo",1);return o.onupgradeneeded=function(){var e=o.result;e.createObjectStore("MyObjectStore",{keyPath:"id"})},o.onsuccess=function(){var r=o.result,n=r.transaction("MyObjectStore","readwrite"),t=n.objectStore("MyObjectStore");e(null,t),n.oncomplete=function(){r.close()}},o}}}};module.exports=IndexDB;
-
-/***/ }),
 /* 11 */
-/***/ (function(module, exports) {
-
-// shim for using process in browser
-var process = module.exports = {};
-
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-
-
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
-    }
-};
-
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) { return [] }
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
-
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Check if `obj` is an object.
- *
- * @param {Object} obj
- * @return {Boolean}
- * @api private
- */
-
-function isObject(obj) {
-  return null !== obj && 'object' === typeof obj;
-}
-
-module.exports = isObject;
-
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
-function makeEmptyFunction(arg) {
-  return function () {
-    return arg;
-  };
-}
-
-/**
- * This function accepts and discards inputs; it has no side effects. This is
- * primarily useful idiomatically for overridable function endpoints which
- * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
- */
-var emptyFunction = function emptyFunction() {};
-
-emptyFunction.thatReturns = makeEmptyFunction;
-emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-emptyFunction.thatReturnsThis = function () {
-  return this;
-};
-emptyFunction.thatReturnsArgument = function (arg) {
-  return arg;
-};
-
-module.exports = emptyFunction;
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var emptyObject = {};
-
-if (false) {}
-
-module.exports = emptyObject;
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
- */
-
-var validateFormat = function validateFormat(format) {};
-
-if (false) {}
-
-function invariant(condition, format, a, b, c, d, e, f) {
-  validateFormat(format);
-
-  if (!condition) {
-    var error;
-    if (format === undefined) {
-      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-    } else {
-      var args = [a, b, c, d, e, f];
-      var argIndex = 0;
-      error = new Error(format.replace(/%s/g, function () {
-        return args[argIndex++];
-      }));
-      error.name = 'Invariant Violation';
-    }
-
-    error.framesToPop = 1; // we don't care about invariant's own frame
-    throw error;
-  }
-}
-
-module.exports = invariant;
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
-
-
-/* eslint-disable no-unused-vars */
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-function toObject(val) {
-	if (val === null || val === undefined) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
-
-	return Object(val);
-}
-
-function shouldUseNative() {
-	try {
-		if (!Object.assign) {
-			return false;
-		}
-
-		// Detect buggy property enumeration order in older V8 versions.
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
-		test1[5] = 'de';
-		if (Object.getOwnPropertyNames(test1)[0] === '5') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test2 = {};
-		for (var i = 0; i < 10; i++) {
-			test2['_' + String.fromCharCode(i)] = i;
-		}
-		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-			return test2[n];
-		});
-		if (order2.join('') !== '0123456789') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test3 = {};
-		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-			test3[letter] = letter;
-		});
-		if (Object.keys(Object.assign({}, test3)).join('') !==
-				'abcdefghijklmnopqrst') {
-			return false;
-		}
-
-		return true;
-	} catch (err) {
-		// We don't expect any of the above to throw, but better to be safe.
-		return false;
-	}
-}
-
-module.exports = shouldUseNative() ? Object.assign : function (target, source) {
-	var from;
-	var to = toObject(target);
-	var symbols;
-
-	for (var s = 1; s < arguments.length; s++) {
-		from = Object(arguments[s]);
-
-		for (var key in from) {
-			if (hasOwnProperty.call(from, key)) {
-				to[key] = from[key];
-			}
-		}
-
-		if (getOwnPropertySymbols) {
-			symbols = getOwnPropertySymbols(from);
-			for (var i = 0; i < symbols.length; i++) {
-				if (propIsEnumerable.call(from, symbols[i])) {
-					to[symbols[i]] = from[symbols[i]];
-				}
-			}
-		}
-	}
-
-	return to;
-};
-
-
-/***/ }),
-/* 17 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return symbolObservablePonyfill; });
-function symbolObservablePonyfill(root) {
-	var result;
-	var Symbol = root.Symbol;
-
-	if (typeof Symbol === 'function') {
-		if (Symbol.observable) {
-			result = Symbol.observable;
-		} else {
-			result = Symbol('observable');
-			Symbol.observable = result;
-		}
-	} else {
-		result = '@@observable';
-	}
-
-	return result;
-};
-
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright 2015, Yahoo! Inc.
- * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
- */
-var REACT_STATICS = {
-    childContextTypes: true,
-    contextTypes: true,
-    defaultProps: true,
-    displayName: true,
-    getDefaultProps: true,
-    getDerivedStateFromProps: true,
-    mixins: true,
-    propTypes: true,
-    type: true
-};
-
-var KNOWN_STATICS = {
-    name: true,
-    length: true,
-    prototype: true,
-    caller: true,
-    callee: true,
-    arguments: true,
-    arity: true
-};
-
-var defineProperty = Object.defineProperty;
-var getOwnPropertyNames = Object.getOwnPropertyNames;
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
-var getPrototypeOf = Object.getPrototypeOf;
-var objectPrototype = getPrototypeOf && getPrototypeOf(Object);
-
-function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
-    if (typeof sourceComponent !== 'string') { // don't hoist over string (html) components
-
-        if (objectPrototype) {
-            var inheritedComponent = getPrototypeOf(sourceComponent);
-            if (inheritedComponent && inheritedComponent !== objectPrototype) {
-                hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
-            }
-        }
-
-        var keys = getOwnPropertyNames(sourceComponent);
-
-        if (getOwnPropertySymbols) {
-            keys = keys.concat(getOwnPropertySymbols(sourceComponent));
-        }
-
-        for (var i = 0; i < keys.length; ++i) {
-            var key = keys[i];
-            if (!REACT_STATICS[key] && !KNOWN_STATICS[key] && (!blacklist || !blacklist[key])) {
-                var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
-                try { // Avoid failures from read-only properties
-                    defineProperty(targetComponent, key, descriptor);
-                } catch (e) {}
-            }
-        }
-
-        return targetComponent;
-    }
-
-    return targetComponent;
-}
-
-module.exports = hoistNonReactStatics;
-
-
-/***/ }),
-/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7830,7 +7306,7 @@ function createProvider() {
 
 /* harmony default export */ var components_Provider = (createProvider());
 // EXTERNAL MODULE: ./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js
-var hoist_non_react_statics_cjs = __webpack_require__(18);
+var hoist_non_react_statics_cjs = __webpack_require__(21);
 var hoist_non_react_statics_cjs_default = /*#__PURE__*/__webpack_require__.n(hoist_non_react_statics_cjs);
 
 // EXTERNAL MODULE: ./node_modules/invariant/browser.js
@@ -8223,10 +7699,10 @@ function shallowEqual(objA, objB) {
   return true;
 }
 // EXTERNAL MODULE: ./node_modules/redux/es/index.js + 6 modules
-var es = __webpack_require__(7);
+var es = __webpack_require__(8);
 
 // EXTERNAL MODULE: ./node_modules/lodash-es/isPlainObject.js + 8 modules
-var isPlainObject = __webpack_require__(9);
+var isPlainObject = __webpack_require__(10);
 
 // CONCATENATED MODULE: ./node_modules/react-redux/es/utils/verifyPlainObject.js
 
@@ -8621,10 +8097,541 @@ function createConnect() {
 
 
 /***/ }),
-/* 20 */,
-/* 21 */,
+/* 12 */,
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Promise=__webpack_require__(1),superagent=__webpack_require__(2),helper=__webpack_require__(4),IndexDB=function(e){var r=e;return{dbTransaction:function(e){if("undefined"==typeof window)return null;if(window){if(null==r.site_id){var n=new Error("Please Set Your TURBO_APP_ID");return void e(n,null)}if(r.site_id.length<20){var n=new Error("Please Set Your TURBO_APP_ID");return void e(n,null)}var t=window.indexedDB||window.mozIndexedDB||window.webkitIndexedDB||window.msIndexedDB||window.shimIndexedDB;if(null==t)return null;if(void 0==t)return null;var o=t.open("turbo",1);return o.onupgradeneeded=function(){var e=o.result;e.createObjectStore("MyObjectStore",{keyPath:"id"})},o.onsuccess=function(){var r=o.result,n=r.transaction("MyObjectStore","readwrite"),t=n.objectStore("MyObjectStore");e(null,t),n.oncomplete=function(){r.close()}},o}}}};module.exports=IndexDB;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Check if `obj` is an object.
+ *
+ * @param {Object} obj
+ * @return {Boolean}
+ * @api private
+ */
+
+function isObject(obj) {
+  return null !== obj && 'object' === typeof obj;
+}
+
+module.exports = isObject;
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+function makeEmptyFunction(arg) {
+  return function () {
+    return arg;
+  };
+}
+
+/**
+ * This function accepts and discards inputs; it has no side effects. This is
+ * primarily useful idiomatically for overridable function endpoints which
+ * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+ */
+var emptyFunction = function emptyFunction() {};
+
+emptyFunction.thatReturns = makeEmptyFunction;
+emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+emptyFunction.thatReturnsThis = function () {
+  return this;
+};
+emptyFunction.thatReturnsArgument = function (arg) {
+  return arg;
+};
+
+module.exports = emptyFunction;
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var emptyObject = {};
+
+if (false) {}
+
+module.exports = emptyObject;
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+/**
+ * Use invariant() to assert state which your program assumes to be true.
+ *
+ * Provide sprintf-style format (only %s is supported) and arguments
+ * to provide information about what broke and what you were
+ * expecting.
+ *
+ * The invariant message will be stripped in production, but the invariant
+ * will remain to ensure logic does not differ in production.
+ */
+
+var validateFormat = function validateFormat(format) {};
+
+if (false) {}
+
+function invariant(condition, format, a, b, c, d, e, f) {
+  validateFormat(format);
+
+  if (!condition) {
+    var error;
+    if (format === undefined) {
+      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
+    } else {
+      var args = [a, b, c, d, e, f];
+      var argIndex = 0;
+      error = new Error(format.replace(/%s/g, function () {
+        return args[argIndex++];
+      }));
+      error.name = 'Invariant Violation';
+    }
+
+    error.framesToPop = 1; // we don't care about invariant's own frame
+    throw error;
+  }
+}
+
+module.exports = invariant;
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+
+/* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+	if (val === null || val === undefined) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function shouldUseNative() {
+	try {
+		if (!Object.assign) {
+			return false;
+		}
+
+		// Detect buggy property enumeration order in older V8 versions.
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+		test1[5] = 'de';
+		if (Object.getOwnPropertyNames(test1)[0] === '5') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test2 = {};
+		for (var i = 0; i < 10; i++) {
+			test2['_' + String.fromCharCode(i)] = i;
+		}
+		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+			return test2[n];
+		});
+		if (order2.join('') !== '0123456789') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test3 = {};
+		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+			test3[letter] = letter;
+		});
+		if (Object.keys(Object.assign({}, test3)).join('') !==
+				'abcdefghijklmnopqrst') {
+			return false;
+		}
+
+		return true;
+	} catch (err) {
+		// We don't expect any of the above to throw, but better to be safe.
+		return false;
+	}
+}
+
+module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+	var from;
+	var to = toObject(target);
+	var symbols;
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = Object(arguments[s]);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				to[key] = from[key];
+			}
+		}
+
+		if (getOwnPropertySymbols) {
+			symbols = getOwnPropertySymbols(from);
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					to[symbols[i]] = from[symbols[i]];
+				}
+			}
+		}
+	}
+
+	return to;
+};
+
+
+/***/ }),
+/* 20 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return symbolObservablePonyfill; });
+function symbolObservablePonyfill(root) {
+	var result;
+	var Symbol = root.Symbol;
+
+	if (typeof Symbol === 'function') {
+		if (Symbol.observable) {
+			result = Symbol.observable;
+		} else {
+			result = Symbol('observable');
+			Symbol.observable = result;
+		}
+	} else {
+		result = '@@observable';
+	}
+
+	return result;
+};
+
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright 2015, Yahoo! Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
+var REACT_STATICS = {
+    childContextTypes: true,
+    contextTypes: true,
+    defaultProps: true,
+    displayName: true,
+    getDefaultProps: true,
+    getDerivedStateFromProps: true,
+    mixins: true,
+    propTypes: true,
+    type: true
+};
+
+var KNOWN_STATICS = {
+    name: true,
+    length: true,
+    prototype: true,
+    caller: true,
+    callee: true,
+    arguments: true,
+    arity: true
+};
+
+var defineProperty = Object.defineProperty;
+var getOwnPropertyNames = Object.getOwnPropertyNames;
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+var getPrototypeOf = Object.getPrototypeOf;
+var objectPrototype = getPrototypeOf && getPrototypeOf(Object);
+
+function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
+    if (typeof sourceComponent !== 'string') { // don't hoist over string (html) components
+
+        if (objectPrototype) {
+            var inheritedComponent = getPrototypeOf(sourceComponent);
+            if (inheritedComponent && inheritedComponent !== objectPrototype) {
+                hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
+            }
+        }
+
+        var keys = getOwnPropertyNames(sourceComponent);
+
+        if (getOwnPropertySymbols) {
+            keys = keys.concat(getOwnPropertySymbols(sourceComponent));
+        }
+
+        for (var i = 0; i < keys.length; ++i) {
+            var key = keys[i];
+            if (!REACT_STATICS[key] && !KNOWN_STATICS[key] && (!blacklist || !blacklist[key])) {
+                var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
+                try { // Avoid failures from read-only properties
+                    defineProperty(targetComponent, key, descriptor);
+                } catch (e) {}
+            }
+        }
+
+        return targetComponent;
+    }
+
+    return targetComponent;
+}
+
+module.exports = hoistNonReactStatics;
+
+
+/***/ }),
 /* 22 */,
-/* 23 */
+/* 23 */,
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8651,8 +8658,10 @@ thunk.withExtraArgument = createThunkMiddleware;
 /* harmony default export */ __webpack_exports__["default"] = (thunk);
 
 /***/ }),
-/* 24 */,
-/* 25 */
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */
 /***/ (function(module, exports) {
 
 module.exports = function(originalModule) {
@@ -8682,7 +8691,7 @@ module.exports = function(originalModule) {
 
 
 /***/ }),
-/* 26 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8701,7 +8710,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 27 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8714,7 +8723,7 @@ module.exports = ReactPropTypesSecret;
 
 
 
-var ReactPropTypesSecret = __webpack_require__(26);
+var ReactPropTypesSecret = __webpack_require__(29);
 
 function emptyFunction() {}
 
@@ -8767,57 +8776,57 @@ module.exports = function() {
 
 
 /***/ }),
-/* 28 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 var Promise=__webpack_require__(1),superagent=__webpack_require__(2),TURBO_VECTOR_API_KEY_HEADER="Turbo-Vector-API-Key",Vertex=function(e){var r=e;return{pageData:function(e){return new Promise(function(t,n){if(null==e)return void n(new Error("Please specify page name"));if(0==e.length)return void n(new Error("Please specify page name"));var i=e.toLowerCase().trim(),o="https://cdn.turbo360-vertex.com/pages/"+r.site_id+"-"+i+".json";superagent.get(o).query(null).set("Accept","application/json").end(function(e,r){if(e)return void n(e);t(r.body)})})}}};module.exports=Vertex;
 
 /***/ }),
-/* 29 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 var Promise=__webpack_require__(1),superagent=__webpack_require__(2),TURBO_VECTOR_API_KEY_HEADER="Turbo-Vector-API-Key",parsePayload=function(e){try{return JSON.parse(e)}catch(r){return e}},Vector=function(e){return{runVector:function(e){return new Promise(function(r,t){if(null==e.app)return void t(new Error("Please specify vector host app - {app: APP}"));if(e.app.length<6)return void t(new Error("Please specify vector host app - {app: APP}"));if(null==e.name)return void t(new Error("Please specify vector name - {name: VECTOR_NAME}"));if(0==e.name.length)return void t(new Error("Please specify vector name - {name: VECTOR_NAME}"));var o=e.query||{},a=e.method||"get",n={method:a.toUpperCase()};null!=e.key&&(n["Turbo-Vector-API-Key"]=e.key);var u="https://production.turbo360-vector.com/"+e.app+"/"+e.name;if("get"==a.toLowerCase())return void superagent.get(u).query(o).set(n).end(function(e,o){if(e){var a=o.text||o.body;return null==a?void t(e):void r(parsePayload(a))}var n=o.status;if(n<200||n>299){var a=o.text||o.body;return null==a?void t(new Error(JSON.stringify(o))):void r(parsePayload(a))}var a=o.text||o.body;r(parsePayload(a))});a.toLowerCase(),a.toLowerCase(),a.toLowerCase()})}}};module.exports=Vector;
 
 /***/ }),
-/* 30 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Promise=__webpack_require__(1),superagent=__webpack_require__(2),helper=__webpack_require__(4),TurboDatastore=function(e){var r=e,t=function(r,t){return null==t&&(t={}),new Promise(function(n,o){if(0==helper.validateSiteId(e))return void o(new Error("Please Set Your TURBO_APP_ID"));var i=r.toLowerCase().trim();superagent.get(e.base_url+"/api/"+i).query(t).set(helper.standardHeaders(e)).end(function(e,r){if(e)return void o(e);if("fail"==r.body.confirmation)return void o(new Error(r.body.message));var t=r.body.results;n(t)})})},n=function(r,t){return new Promise(function(n,o){if(0==helper.validateSiteId(e))return void o(new Error("Please Set Your TURBO_APP_ID"));var i=r.toLowerCase().trim();superagent.get(e.base_url+"/api/"+i+"/"+t).query(null).set(helper.standardHeaders(e)).end(function(e,r){if(e)return void o(e);if("fail"==r.body.confirmation)return void o(new Error(r.body.message));var t=r.body.result;n(t)})})},o=function(t,n){return new Promise(function(o,i){if(0==helper.validateSiteId(e))return void i(new Error("Please Set Your TURBO_APP_ID"));if(null==n)return void i(new Error("Post parameters required."));n.site=r.site_id;var a=t.toLowerCase().trim();superagent.post(e.base_url+"/api/"+a).send(n).set(helper.standardHeaders(e)).end(function(e,r){if(e)return void i(e);if("fail"==r.body.confirmation)return void i(new Error(r.body.message));var t=r.body.result||r.body.results;o(t)})})},i=function(r,t,n){return new Promise(function(o,i){if(0==helper.validateSiteId(e))return void i(new Error("Please Set Your TURBO_APP_ID"));if(null==n)return void i(new Error("Updated parameters required."));var a=r.toLowerCase().trim();superagent.put(e.base_url+"/api/"+a+"/"+t).send(n).set(helper.standardHeaders(e)).end(function(e,r){if(e)return void i(e);if("fail"==r.body.confirmation)return void i(new Error(r.body.message));var t=r.body.result||r.body.results;o(t)})})},a=function(r,t){return new Promise(function(n,o){if(0==helper.validateSiteId(e))return void o(new Error("Please Set Your TURBO_APP_ID"));var i=r.toLowerCase().trim();superagent.delete(e.base_url+"/api/"+i+"/"+t).set(helper.standardHeaders(e)).end(function(e,r){if(e)return void o(e);if("fail"==r.body.confirmation)return void o(new Error(r.body.message));var t=r.body.result||r.body.results;n(t)})})};return{fetch:t,fetchOne:n,create:o,update:function(r,t,n){return new Promise(function(o,i){if(0==helper.validateSiteId(e))return void i(new Error("Please Set Your TURBO_APP_ID"));if(null==n)return void i(new Error("Post parameters required."));Object.keys(n).forEach(function(e,r){var o=n[e];t[e]=o});var a=r.toLowerCase().trim();superagent.put(e.base_url+"/api/"+a+"/"+t.id).send(t).set(helper.standardHeaders(e)).end(function(e,r){if(e)return void i(e);if("fail"==r.body.confirmation)return void i(new Error(r.body.message));var t=r.body.result||r.body.results;o(t)})})},remove:function(r,t){return new Promise(function(n,o){if(0==helper.validateSiteId(e))return void o(new Error("Please Set Your TURBO_APP_ID"));var i=r.toLowerCase().trim();superagent.delete(e.base_url+"/api/"+i+"/"+t.id).set(helper.standardHeaders(e)).end(function(e,r){if(e)return void o(e);if("fail"==r.body.confirmation)return void o(new Error(r.body.message));var t=r.body.result||r.body.results;n(t)})})},updateEntity:i,removeEntity:a}};module.exports=TurboDatastore;
 
 /***/ }),
-/* 31 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Promise=__webpack_require__(1),superagent=__webpack_require__(2),helper=__webpack_require__(4),TurboStorage=function(e){var t=e;return{uploadFile:function(e){return new Promise(function(n,i){if(null==e)return void i(new Error("Missing file"));if(null==e.name)return void i(new Error("Missing file name"));if(null==e.type)return void i(new Error("Missing file type"));const r=e.type.toLowerCase();console.log("FILE TYPE: "+r);var o={site:t.site_id,exec:"upload-string",filename:e.name,filetype:r};superagent.post(t.base_url+"/functions").send(o).set("Content-Type","application/json").end(function(o,s){if(o)return void i(o);var u=s.body;if("success"!=u.confirmation)return void i(new Error(u.message));var a=u.result;if(-1==e.type.indexOf("image"))return void superagent.put(a).send(e).set("Content-Type",e.type).end(function(r,o){if(r)return void i(r);var s={site:t.site_id,name:e.name,type:e.type,size:e.size,url:"https://storage.turbo360.co/"+u.site.slug+"/"+e.name};superagent.post(t.turbo_url+"/api/blob").send(s).set("Accept","application/json").end(function(e,t){if(e)return void i(e);n(t.body)})});if(r.indexOf("gif")>-1||r.indexOf("svg")>-1)return void superagent.put(a).send(e).set("Content-Type",e.type).end(function(r,o){if(r)return void i(r);var s={site:t.site_id,name:e.name,type:e.type,size:e.size,url:"https://storage.turbo360.co/"+u.site.slug+"/"+e.name};superagent.post(t.turbo_url+"/api/blob").send(s).set("Accept","application/json").end(function(e,t){if(e)return void i(e);n(t.body)})});var p=superagent.post(a);p.attach("file",e),p.end(function(r,o){if(r)return void i(r);var s=o.body.image,u={site:t.site_id,name:e.name,type:e.type,size:e.size,url:s.address};superagent.post(t.turbo_url+"/api/blob").send(u).set("Accept","application/json").end(function(e,t){if(e)return void i(e);n(t.body)})})})})}}};module.exports=TurboStorage;
 
 /***/ }),
-/* 32 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Promise=__webpack_require__(1),superagent=__webpack_require__(2),helper=__webpack_require__(4),Platform=function(e){var r=e;return{site:function(){return new Promise(function(e,t){if(null==r.site_id)return void t(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void t(new Error("Please Set Your TURBO_APP_ID"));var i=r.turbo_url+"/api/site/"+r.site_id;superagent.get(i).query(null).set("Accept","application/json").end(function(r,i){if(r)return void t(r);var n=i.body;if("success"!=n.confirmation)return void t(new Error(n.message));e(n.result)})})},fetchSites:function(e){return new Promise(function(t,i){if(null==r.site_id)return void i(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void i(new Error("Please Set Your TURBO_APP_ID"));var n=r.turbo_url+"/api/site";superagent.get(n).query(e).set("Accept","application/json").end(function(e,r){if(e)return void i(e);var n=r.body;if("success"!=n.confirmation)return void i(new Error(n.message));var u=n.results||n.result;t(u)})})}}};module.exports=Platform;
 
 /***/ }),
-/* 33 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Promise=__webpack_require__(1),superagent=__webpack_require__(2),helper=__webpack_require__(4),Functions=function(e){var r=e;return{executeFunction:function(e){return new Promise(function(n,i){return r.site_id.length<20?void i(new Error("Please Set Your TURBO_APP_ID")):null==e?void i(new Error("Post parameters required.")):null==e.exec?void i(new Error("Missing Exec Parameter")):(e.site=r.site_id,void superagent.post(r.base_url+"/functions").send(parameters).set("Accept","application/json").end(function(e,r){if(e)return void i(e);var t=r.body;if("success"!=t.confirmation)return void i(new Error(t.message));n(t)}))})}}};module.exports=Functions;
 
 /***/ }),
-/* 34 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Promise=__webpack_require__(1),superagent=__webpack_require__(2),IndexDB=__webpack_require__(10),helper=__webpack_require__(4),Auth=function(e){var r=e;return{login:function(n){return new Promise(function(t,o){return 0==helper.validateSiteId(e)?void o(new Error("Please Set Your TURBO_APP_ID")):null==n?void o(new Error("Post parameters required.")):(n.site=r.site_id,void superagent.post(r.base_url+"/auth/login").send(n).set("Accept","application/json").end(function(e,r){if(e)return void o(e);var n=r.body;if("success"!=n.confirmation){var i=n.message||"Login Failed";return void o(new Error(i))}var u=n.user||n.result;t(u)}))})},logout:function(){return new Promise(function(n,t){if(0==helper.validateSiteId(e))return void t(new Error("Please Set Your TURBO_APP_ID"));if("undefined"==typeof window)return void n(null);var o=IndexDB(r);if(null==o)return void n(null);o.dbTransaction(function(e,o){if(e)return void t(e);var i=o.delete(r.site_id);i.onsuccess=function(){console.log("Token Removed"),n(null)},i.onerror=function(e){t(e.target)}})})},currentUser:function(){return new Promise(function(e,n){if("undefined"==typeof window)return void e(null);var t=IndexDB(r);if(null==t)return void e(null);t.dbTransaction(function(t,o){if(t)return void n(t);var i=o.get(r.site_id);i.onsuccess=function(){if(null==i.result)return void n(new Error("Not Logged In"));superagent.get(r.base_url+"/auth/currentuser").query(null).set("Accept","application/json").set("turbo-token",i.result.token).end(function(r,t){if(r)return void n(r);if("success"!=t.body.confirmation)return void n(new Error(t.body.message));var o=t.body.user||t.body.result;e(o)})},i.onerror=function(e){n(e.target)}})})},createUser:function(n){return new Promise(function(t,o){return 0==helper.validateSiteId(e)?void o(new Error("Please Set Your TURBO_APP_ID")):null==n?void o(new Error("Post parameters required.")):(n.site=r.site_id,void superagent.post(r.base_url+"/auth/createuser").send(n).set("Accept","application/json").end(function(e,n){if(e)return void o(e);var i=n.body;if("success"!=i.confirmation){var u=i.message||"Registration Failed";return void o(new Error(u))}var s=i.user||i.result;if("undefined"==typeof window)return console.log("Window undefined!"),void t(s);var d=IndexDB(r);if(null==d)return void t(s);d.dbTransaction(function(e,n){if(e)return void o(e);n.put({id:r.site_id,token:i.token}),t(s)})}))})},fetchUser:function(n){return new Promise(function(t,o){if(0==helper.validateSiteId(e))return void o(new Error("Please Set Your TURBO_APP_ID"));superagent.get(r.base_url+"/api/user/"+n).query(null).set(helper.standardHeaders(e)).end(function(e,r){if(e)return void o(e);if("success"!=r.body.confirmation)return void o(new Error(r.body.message));var n=r.body.result||r.body.user;t(n)})})},updateUser:function(n,t){return new Promise(function(o,i){return 0==helper.validateSiteId(e)?void i(new Error("Please Set Your TURBO_APP_ID")):null==t?void i(new Error("Updated parameters required.")):void superagent.put(r.base_url+"/api/user/"+n).send(t).set(helper.standardHeaders(e)).end(function(e,r){if(e)return void i(e);if("success"!=r.body.confirmation)return void i(new Error(r.body.message));var n=r.body.result||r.body.user;o(n)})})},deleteUser:function(n){return new Promise(function(t,o){if(0==helper.validateSiteId(e))return void o(new Error("Please Set Your TURBO_APP_ID"));superagent.delete(r.base_url+"/api/user/"+n).set(helper.standardHeaders(e)).end(function(e,r){if(e)return void o(e);if("fail"==r.body.confirmation)return void o(new Error(r.body.message));var n=r.body.result||r.body.results;t(n)})})}}};module.exports=Auth;
+var Promise=__webpack_require__(1),superagent=__webpack_require__(2),IndexDB=__webpack_require__(13),helper=__webpack_require__(4),Auth=function(e){var r=e;return{login:function(n){return new Promise(function(t,o){return 0==helper.validateSiteId(e)?void o(new Error("Please Set Your TURBO_APP_ID")):null==n?void o(new Error("Post parameters required.")):(n.site=r.site_id,void superagent.post(r.base_url+"/auth/login").send(n).set("Accept","application/json").end(function(e,r){if(e)return void o(e);var n=r.body;if("success"!=n.confirmation){var i=n.message||"Login Failed";return void o(new Error(i))}var u=n.user||n.result;t(u)}))})},logout:function(){return new Promise(function(n,t){if(0==helper.validateSiteId(e))return void t(new Error("Please Set Your TURBO_APP_ID"));if("undefined"==typeof window)return void n(null);var o=IndexDB(r);if(null==o)return void n(null);o.dbTransaction(function(e,o){if(e)return void t(e);var i=o.delete(r.site_id);i.onsuccess=function(){console.log("Token Removed"),n(null)},i.onerror=function(e){t(e.target)}})})},currentUser:function(){return new Promise(function(e,n){if("undefined"==typeof window)return void e(null);var t=IndexDB(r);if(null==t)return void e(null);t.dbTransaction(function(t,o){if(t)return void n(t);var i=o.get(r.site_id);i.onsuccess=function(){if(null==i.result)return void n(new Error("Not Logged In"));superagent.get(r.base_url+"/auth/currentuser").query(null).set("Accept","application/json").set("turbo-token",i.result.token).end(function(r,t){if(r)return void n(r);if("success"!=t.body.confirmation)return void n(new Error(t.body.message));var o=t.body.user||t.body.result;e(o)})},i.onerror=function(e){n(e.target)}})})},createUser:function(n){return new Promise(function(t,o){return 0==helper.validateSiteId(e)?void o(new Error("Please Set Your TURBO_APP_ID")):null==n?void o(new Error("Post parameters required.")):(n.site=r.site_id,void superagent.post(r.base_url+"/auth/createuser").send(n).set("Accept","application/json").end(function(e,n){if(e)return void o(e);var i=n.body;if("success"!=i.confirmation){var u=i.message||"Registration Failed";return void o(new Error(u))}var s=i.user||i.result;if("undefined"==typeof window)return console.log("Window undefined!"),void t(s);var d=IndexDB(r);if(null==d)return void t(s);d.dbTransaction(function(e,n){if(e)return void o(e);n.put({id:r.site_id,token:i.token}),t(s)})}))})},fetchUser:function(n){return new Promise(function(t,o){if(0==helper.validateSiteId(e))return void o(new Error("Please Set Your TURBO_APP_ID"));superagent.get(r.base_url+"/api/user/"+n).query(null).set(helper.standardHeaders(e)).end(function(e,r){if(e)return void o(e);if("success"!=r.body.confirmation)return void o(new Error(r.body.message));var n=r.body.result||r.body.user;t(n)})})},updateUser:function(n,t){return new Promise(function(o,i){return 0==helper.validateSiteId(e)?void i(new Error("Please Set Your TURBO_APP_ID")):null==t?void i(new Error("Updated parameters required.")):void superagent.put(r.base_url+"/api/user/"+n).send(t).set(helper.standardHeaders(e)).end(function(e,r){if(e)return void i(e);if("success"!=r.body.confirmation)return void i(new Error(r.body.message));var n=r.body.result||r.body.user;o(n)})})},deleteUser:function(n){return new Promise(function(t,o){if(0==helper.validateSiteId(e))return void o(new Error("Please Set Your TURBO_APP_ID"));superagent.delete(r.base_url+"/api/user/"+n).set(helper.standardHeaders(e)).end(function(e,r){if(e)return void o(e);if("fail"==r.body.confirmation)return void o(new Error(r.body.message));var n=r.body.result||r.body.results;t(n)})})}}};module.exports=Auth;
 
 /***/ }),
-/* 35 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Promise=__webpack_require__(1),superagent=__webpack_require__(2),helper=__webpack_require__(4),StripeUtils=function(e){var r=e;return{createStripeAccount:function(e){return new Promise(function(i,n){return null==r.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):r.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):null==e.stripeRef?void n(new Error("Missing stripeRef")):null==e.client?void n(new Error("Missing Client Parameter")):null==e.stripeToken?void n(new Error("Missing StripeToken Parameter")):void e.stripeRef.customers.create({description:e.client._id.toString(),source:e.stripeToken},function(r,t){if(r)return void n(r);var o=t.sources.data[0];e.client.stripeId=t.id,e.client.creditCard={id:t.id,lastFour:o.last4,exp_month:o.exp_month,exp_year:o.exp_year,brand:o.brand},i(e.client)})})},createStripeCharge:function(e){return new Promise(function(i,n){return null==r.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):r.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):null==e.stripeRef?void n(new Error("Missing stripeRef")):null==e.amount?void n(new Error("Missing Amount Parameter")):null==e.stripeToken?void n(new Error("Missing StripeToken Parameter")):null==e.description?void n(new Error("Missing Description Parameter")):void e.stripeRef.charges.create({amount:100*e.amount,currency:"usd",source:e.stripeToken,description:e.description},function(e,r){if(e)return void n(e);i(r)})})},recurringCharge:function(e){return new Promise(function(i,n){return null==r.site_id?void n(new Error("Please Set Your TURBO_APP_ID")):r.site_id.length<20?void n(new Error("Please Set Your TURBO_APP_ID")):null==e.stripeRef?void n(new Error("Missing stripeRef")):null==e.amount?void n(new Error("Missing amount parameter")):null==e.customerId?void n(new Error("Missing customerId parameter")):null==e.description?void n(new Error("Missing description parameter")):void e.stripeRef.charges.create({amount:100*e.amount,currency:"usd",customer:e.customerId,description:e.description},function(e,r){if(e)return void n(e);i(r)})})},initializeStripe:function(e){return new Promise(function(i,n){if(null==r.site_id)return void n(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void n(new Error("Please Set Your TURBO_APP_ID"));if(null==e.stripePublicKey)return void n(new Error("Missing stripePublicKey"));if(null==e.text)return void n(new Error("Missing text"));if(null==e.callback)return void n(new Error("Missing callback"));var t=e.image||"/images/logo_260.png",o=e.withAddress||!0;i(StripeCheckout.configure({key:e.stripePublicKey,image:t,address:o,locale:"auto",panelLabel:e.text,token:function(r){e.callback(r)},closed:function(){e.onClosed&&e.onClosed()}}))})},submitStripeCharge:function(e,i){return new Promise(function(n,t){if(null==e)return void t(new Error("Missing Stripe Token"));if(null==r.site_id)return void t(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void t(new Error("Please Set Your TURBO_APP_ID"));if(null==i.price)return void t(new Error("Product price not specified."));if(null==i.description)return void t(new Error("Product description not specified."));if(0==i.description.length)return void t(new Error("Product description not specified."));var o={site:r.site_id,exec:"create-stripe-charge",stripeToken:e.id,email:e.email,name:e.card.name,amount:i.price,description:i.description};superagent.post(r.base_url+"/functions").send(o).set({Accept:"application/json"}).end(function(e,r){return e?void t(e):"success"!=r.body.confirmation?void t({message:r.body.message}):void n(r.body)})})},submitStripeCard:function(e){return new Promise(function(i,n){if(null==e)return void n(new Error("Missing Stripe Token"));if(null==r.site_id)return void n(new Error("Please Set Your TURBO_APP_ID"));if(r.site_id.length<20)return void n(new Error("Please Set Your TURBO_APP_ID"));var t={site:r.site_id,stripeToken:e.id,email:e.email,name:e.card.name};superagent.post(r.turbo_platform_url+"/create-stripe-customer").send(t).set({Accept:"application/json"}).end(function(e,r){return e?void n(e):"success"!=r.body.confirmation?void n({message:r.body.message}):void i(r.body)})})}}};module.exports=StripeUtils;
 
 /***/ }),
-/* 36 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -9007,10 +9016,10 @@ var Promise=__webpack_require__(1),superagent=__webpack_require__(2),helper=__we
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(5), __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(5), __webpack_require__(14)))
 
 /***/ }),
-/* 37 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -9066,7 +9075,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(36);
+__webpack_require__(39);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -9080,7 +9089,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(5)))
 
 /***/ }),
-/* 38 */
+/* 41 */
 /***/ (function(module, exports) {
 
 function Agent() {
@@ -9106,7 +9115,7 @@ module.exports = Agent;
 
 
 /***/ }),
-/* 39 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9184,7 +9193,7 @@ exports.cleanHeader = function(header, changesOrigin){
 
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9194,7 +9203,7 @@ exports.cleanHeader = function(header, changesOrigin){
  * Module dependencies.
  */
 
-var utils = __webpack_require__(39);
+var utils = __webpack_require__(42);
 
 /**
  * Expose `ResponseBase`.
@@ -9327,7 +9336,7 @@ ResponseBase.prototype._setStatusProperties = function(status){
 
 
 /***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9336,7 +9345,7 @@ ResponseBase.prototype._setStatusProperties = function(status){
 /**
  * Module of mixed-in functions shared between node and client code
  */
-var isObject = __webpack_require__(12);
+var isObject = __webpack_require__(15);
 
 /**
  * Expose `RequestBase`.
@@ -10028,7 +10037,7 @@ RequestBase.prototype._setTimeouts = function() {
 
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -10197,18 +10206,11 @@ Emitter.prototype.hasListeners = function(event){
 
 
 /***/ }),
-/* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-var superagent=__webpack_require__(2),Promise=__webpack_require__(1),StripeUtils=__webpack_require__(35),Auth=__webpack_require__(34),IndexDB=__webpack_require__(10),Functions=__webpack_require__(33),Platform=__webpack_require__(32),TurboStorage=__webpack_require__(31),TurboDatastore=__webpack_require__(30),Vector=__webpack_require__(29),Vertex=__webpack_require__(28),Microservice=function(e){var r={site_id:e.site_id,turbo_url:"https://turbo-dashboard.herokuapp.com",turbo_platform_url:"https://platform.turbo360-vector.com",base_url:"https://velocity-microservices.herokuapp.com",turbo_app_header:"Turbo-App-Id"},t=StripeUtils(r),i=TurboDatastore(r),u=Auth(r),o=Functions(r),a=Platform(r),s=TurboStorage(r),c=Vector(r),p=Vertex(r);return{fetch:i.fetch,fetchOne:i.fetchOne,create:i.create,update:i.update,remove:i.remove,updateEntity:i.updateEntity,removeEntity:i.removeEntity,login:u.login,logout:u.logout,createUser:u.createUser,currentUser:u.currentUser,fetchUser:u.fetchUser,updateUser:u.updateUser,deleteUser:u.deleteUser,createStripeCharge:t.createStripeCharge,createStripeAccount:t.createStripeAccount,recurringCharge:t.recurringCharge,initializeStripe:t.initializeStripe,submitStripeCharge:t.submitStripeCharge,submitStripeCard:t.submitStripeCard,executeFunction:o.executeFunction,site:a.site,fetchSites:a.fetchSites,uploadFile:s.uploadFile,runVector:c.runVector,pageData:p.pageData}};module.exports=Microservice;
-
-/***/ }),
-/* 44 */,
-/* 45 */,
 /* 46 */,
 /* 47 */,
-/* 48 */
+/* 48 */,
+/* 49 */,
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10236,7 +10238,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10251,7 +10253,7 @@ module.exports = isNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(48);
+var isNode = __webpack_require__(50);
 
 /**
  * @param {*} object The object to check.
@@ -10264,7 +10266,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10279,7 +10281,7 @@ module.exports = isTextNode;
  * 
  */
 
-var isTextNode = __webpack_require__(49);
+var isTextNode = __webpack_require__(51);
 
 /*eslint-disable no-bitwise */
 
@@ -10307,7 +10309,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10378,7 +10380,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10420,7 +10422,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10459,7 +10461,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10475,7 +10477,7 @@ module.exports = ExecutionEnvironment;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(15),ba=__webpack_require__(3),m=__webpack_require__(53),p=__webpack_require__(16),v=__webpack_require__(13),da=__webpack_require__(52),ea=__webpack_require__(51),fa=__webpack_require__(50),ha=__webpack_require__(14);
+var aa=__webpack_require__(18),ba=__webpack_require__(3),m=__webpack_require__(55),p=__webpack_require__(19),v=__webpack_require__(16),da=__webpack_require__(54),ea=__webpack_require__(53),fa=__webpack_require__(52),ha=__webpack_require__(17);
 function A(a){for(var b=arguments.length-1,c="https://reactjs.org/docs/error-decoder.html?invariant="+a,d=0;d<b;d++)c+="&args[]="+encodeURIComponent(arguments[d+1]);aa(!1,"Minified React error #"+a+"; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ",c)}ba?void 0:A("227");
 function ia(a,b,c,d,e,f,g,h,k){this._hasCaughtError=!1;this._caughtError=null;var n=Array.prototype.slice.call(arguments,3);try{b.apply(c,n)}catch(r){this._caughtError=r,this._hasCaughtError=!0}}
 var B={_caughtError:null,_hasCaughtError:!1,_rethrowError:null,_hasRethrowError:!1,invokeGuardedCallback:function(a,b,c,d,e,f,g,h,k){ia.apply(B,arguments)},invokeGuardedCallbackAndCatchFirstError:function(a,b,c,d,e,f,g,h,k){B.invokeGuardedCallback.apply(this,arguments);if(B.hasCaughtError()){var n=B.clearCaughtError();B._hasRethrowError||(B._hasRethrowError=!0,B._rethrowError=n)}},rethrowCaughtError:function(){return ka.apply(B,arguments)},hasCaughtError:function(){return B._hasCaughtError},clearCaughtError:function(){if(B._hasCaughtError){var a=
@@ -10706,7 +10708,7 @@ var Bi={default:wi},Ci=Bi&&wi||Bi;module.exports=Ci.default?Ci.default:Ci;
 
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10735,12 +10737,12 @@ if (true) {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(54);
+  module.exports = __webpack_require__(56);
 } else {}
 
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10753,7 +10755,7 @@ if (true) {
  * LICENSE file in the root directory of this source tree.
  */
 
-var k=__webpack_require__(16),n=__webpack_require__(15),p=__webpack_require__(14),q=__webpack_require__(13),r="function"===typeof Symbol&&Symbol.for,t=r?Symbol.for("react.element"):60103,u=r?Symbol.for("react.portal"):60106,v=r?Symbol.for("react.fragment"):60107,w=r?Symbol.for("react.strict_mode"):60108,x=r?Symbol.for("react.profiler"):60114,y=r?Symbol.for("react.provider"):60109,z=r?Symbol.for("react.context"):60110,A=r?Symbol.for("react.async_mode"):60111,B=
+var k=__webpack_require__(19),n=__webpack_require__(18),p=__webpack_require__(17),q=__webpack_require__(16),r="function"===typeof Symbol&&Symbol.for,t=r?Symbol.for("react.element"):60103,u=r?Symbol.for("react.portal"):60106,v=r?Symbol.for("react.fragment"):60107,w=r?Symbol.for("react.strict_mode"):60108,x=r?Symbol.for("react.profiler"):60114,y=r?Symbol.for("react.provider"):60109,z=r?Symbol.for("react.context"):60110,A=r?Symbol.for("react.async_mode"):60111,B=
 r?Symbol.for("react.forward_ref"):60112;r&&Symbol.for("react.timeout");var C="function"===typeof Symbol&&Symbol.iterator;function D(a){for(var b=arguments.length-1,e="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=0;c<b;c++)e+="&args[]="+encodeURIComponent(arguments[c+1]);n(!1,"Minified React error #"+a+"; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ",e)}
 var E={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function F(a,b,e){this.props=a;this.context=b;this.refs=p;this.updater=e||E}F.prototype.isReactComponent={};F.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?D("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};F.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};function G(){}
 G.prototype=F.prototype;function H(a,b,e){this.props=a;this.context=b;this.refs=p;this.updater=e||E}var I=H.prototype=new G;I.constructor=H;k(I,F.prototype);I.isPureReactComponent=!0;var J={current:null},K=Object.prototype.hasOwnProperty,L={key:!0,ref:!0,__self:!0,__source:!0};
@@ -10769,8 +10771,8 @@ assign:k}},Y={default:X},Z=Y&&X||Y;module.exports=Z.default?Z.default:Z;
 
 
 /***/ }),
-/* 57 */,
-/* 58 */
+/* 59 */,
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

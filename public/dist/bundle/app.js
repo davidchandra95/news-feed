@@ -130,21 +130,21 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push([57,0]);
+/******/ 	deferredModules.push([59,0]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 20:
+/***/ 12:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+   value: true
 });
 /* * * * * * * * * * * * * * * * * * * * * * * * * * *
 	Here are a few sample constants for typical actions.
@@ -154,27 +154,28 @@ Object.defineProperty(exports, "__esModule", {
 */
 
 exports.default = {
-
-	USERS_RECEIVED: 'USERS_RECEIVED',
-	USER_CREATED: 'USER_CREATED',
-	USER_LOGGED_IN: 'USER_LOGGED_IN',
-	CURRENT_USER_RECEIVED: 'CURRENT_USER_RECEIVED'
+   FEEDS_RECEIVED: 'FEEDS_RECEIVED',
+   FEED_CREATED: 'FEED_CREATED'
+   // USERS_RECEIVED: 'USERS_RECEIVED',
+   // USER_CREATED: 'USER_CREATED',
+   // USER_LOGGED_IN: 'USER_LOGGED_IN',
+   // CURRENT_USER_RECEIVED: 'CURRENT_USER_RECEIVED'
 
 };
 
 /***/ }),
 
-/***/ 21:
+/***/ 22:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+   value: true
 });
 
-var _constants = __webpack_require__(20);
+var _constants = __webpack_require__(12);
 
 var _constants2 = _interopRequireDefault(_constants);
 
@@ -188,80 +189,75 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 */
 
 var initialState = {
-	all: null,
-	currentUser: null // signed in user
+   all: null
 };
 
 exports.default = function () {
-	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-	var action = arguments[1];
+   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+   var action = arguments[1];
 
-	var newState = Object.assign({}, state);
+   var newState = Object.assign({}, state);
 
-	switch (action.type) {
+   switch (action.type) {
 
-		case _constants2.default.CURRENT_USER_RECEIVED:
-			newState['currentUser'] = action.data;
-			return newState;
+      case _constants2.default.FEEDS_RECEIVED:
+         newState['all'] = action.data;
+         return newState;
 
-		case _constants2.default.USERS_RECEIVED:
-			newState['all'] = action.data;
-			return newState;
+      case _constants2.default.FEED_CREATED:
+         var all = newState.all ? Object.assign([], newState.all) : [];
+         all.unshift(action.data);
+         newState['all'] = all;
+         return newState;
 
-		case _constants2.default.USER_CREATED:
-			var array = newState.all ? Object.assign([], newState.all) : [];
-			array.unshift(action.data);
-			newState['all'] = array;
-			return newState;
-
-		default:
-			return state;
-	}
+      default:
+         return state;
+   }
 };
 
 /***/ }),
 
-/***/ 22:
+/***/ 23:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
-exports.userReducer = undefined;
+exports.feedReducer = undefined;
 
-var _userReducer = __webpack_require__(21);
+var _feedReducer = __webpack_require__(22);
 
-var _userReducer2 = _interopRequireDefault(_userReducer);
+var _feedReducer2 = _interopRequireDefault(_feedReducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.userReducer = _userReducer2.default; /* * * * * * * * * * * * * * * * * * * * * * * * * * *
+exports.feedReducer = _feedReducer2.default; /* * * * * * * * * * * * * * * * * * * * * * * * * * *
                                              	Export your reducers here
                                              * * * * * * * * * * * * * * * * * * * * * * * * * * * *
                                              */
 
 /***/ }),
 
-/***/ 24:
+/***/ 25:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+   value: true
 });
 
-var _redux = __webpack_require__(7);
+var _redux = __webpack_require__(8);
 
-var _reduxThunk = __webpack_require__(23);
+var _reduxThunk = __webpack_require__(24);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _reducers = __webpack_require__(22);
+var _reducers = __webpack_require__(23);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -275,32 +271,161 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var store;
 exports.default = {
 
-	configure: function configure(initialState) {
-		// initialState can be null
+   configure: function configure(initialState) {
+      // initialState can be null
 
-		var reducers = (0, _redux.combineReducers)({ // insert reducers here
-			user: _reducers.userReducer
-		});
+      var reducers = (0, _redux.combineReducers)({ // insert reducers here
+         feed: _reducers.feedReducer
+      });
 
-		if (initialState) {
-			store = (0, _redux.createStore)(reducers, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default));
+      if (initialState) {
+         store = (0, _redux.createStore)(reducers, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default));
 
-			return store;
-		}
+         return store;
+      }
 
-		store = (0, _redux.createStore)(reducers, (0, _redux.applyMiddleware)(_reduxThunk2.default));
+      store = (0, _redux.createStore)(reducers, (0, _redux.applyMiddleware)(_reduxThunk2.default));
 
-		return store;
-	},
+      return store;
+   },
 
-	currentStore: function currentStore() {
-		return store;
-	}
+   currentStore: function currentStore() {
+      return store;
+   }
 };
 
 /***/ }),
 
-/***/ 44:
+/***/ 26:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+   value: true
+});
+
+var _turbo = __webpack_require__(7);
+
+var _turbo2 = _interopRequireDefault(_turbo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var APP_ID = '5b782b9794fc4b0014aeab94';
+
+var postRequest = function postRequest(resource, params, actionType) {
+   return function (dispatch) {
+      return (0, _turbo2.default)({ site_id: APP_ID }).create(resource, params).then(function (data) {
+         if (actionType != null) {
+            dispatch({
+               type: actionType,
+               data: data
+            });
+         }
+
+         return data;
+      }).catch(function (err) {
+         throw err;
+      });
+   };
+};
+
+var getRequest = function getRequest(resource, params, actionType) {
+   return function (dispatch) {
+      return (0, _turbo2.default)({ site_id: APP_ID }).fetch(resource, params).then(function (data) {
+         if (actionType != null) {
+            dispatch({
+               type: actionType,
+               params: params, // can be null
+               data: data
+            });
+         }
+
+         return data;
+      }).catch(function (err) {
+         throw err;
+      });
+   };
+};
+
+exports.default = {
+
+   postRequest: postRequest,
+   getRequest: getRequest
+
+};
+
+/***/ }),
+
+/***/ 27:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+   value: true
+});
+
+var _constants = __webpack_require__(12);
+
+var _constants2 = _interopRequireDefault(_constants);
+
+var _turbo = __webpack_require__(7);
+
+var _turbo2 = _interopRequireDefault(_turbo);
+
+var _myUtils = __webpack_require__(26);
+
+var _myUtils2 = _interopRequireDefault(_myUtils);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * *
+	Here are a few sample actions for User managment.
+	Feel free to remove and replace with your own actions
+* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*/
+exports.default = {
+
+   fetchFeeds: function fetchFeeds(params) {
+      return function (dispatch) {
+         return dispatch(_myUtils2.default.getRequest('feed', params, _constants2.default.FEEDS_RECEIVED));
+      };
+   },
+
+   createFeed: function createFeed(params) {
+      return function (dispatch) {
+         return dispatch(_myUtils2.default.postRequest('feed', params, _constants2.default.FEED_CREATED));
+      };
+   }
+
+   // // Unlike addUser, register() also maintains a session for login state. After calling 
+   // // TurboClient.createUser(), the new user is logged in as well:
+   // register: (params) => {
+   //    return dispatch => {
+   //       return dispatch(TurboClient.createUser(params, constants.USER_CREATED))
+   //    }
+   // },
+
+   // loginUser: (credentials) => {
+   //    return dispatch => {
+   //       return dispatch(TurboClient.login(credentials, constants.CURRENT_USER_RECEIVED))
+   //    }
+   // },
+
+   // currentUser: () => {
+   //    return dispatch => {
+   //       return dispatch(TurboClient.currentUser(constants.CURRENT_USER_RECEIVED))
+   //    }
+   // }
+
+};
+
+/***/ }),
+
+/***/ 46:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -316,9 +441,15 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _turbo = __webpack_require__(43);
+var _turbo = __webpack_require__(7);
 
 var _turbo2 = _interopRequireDefault(_turbo);
+
+var _reactRedux = __webpack_require__(11);
+
+var _actions = __webpack_require__(27);
+
+var _actions2 = _interopRequireDefault(_actions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -347,6 +478,29 @@ var Sidebar = function (_Component) {
    }
 
    _createClass(Sidebar, [{
+      key: 'componentDidMount',
+      value: function componentDidMount() {
+         var _this2 = this;
+
+         this.props.fetchFeeds(null).then(function (data) {
+            _this2.setState({
+               feeds: data
+            });
+         }).catch(function (err) {
+            alert('Error: ' + err.message);
+         });
+         // var turboClient = turbo({site_id: '5b782b9794fc4b0014aeab94'});
+         // turboClient.fetch('feed', null)
+         // .then(data => {
+         //    this.setState({
+         //       feeds: data
+         //    })
+         // })
+         // .catch(err => {
+         //    alert('Error: ' + err.message);
+         // })
+      }
+   }, {
       key: 'updateFeed',
       value: function updateFeed(field, event) {
          var feed = Object.assign({}, this.state.feed);
@@ -356,16 +510,16 @@ var Sidebar = function (_Component) {
    }, {
       key: 'addFeed',
       value: function addFeed(event) {
-         var _this2 = this;
+         var _this3 = this;
 
          event.preventDefault();
 
-         var turboClient = (0, _turbo2.default)({ site_id: '5b782b9794fc4b0014aeab94' });
-         turboClient.create('feed', this.state.feed).then(function (data) {
-            var feeds = Object.assign([], _this2.state.feeds);
-            feeds.push(data);
-            _this2.setState({
-               feeds: feeds
+         this.props.createFeed(this.state.feed).then(function (data) {
+            _this3.setState({
+               feed: {
+                  name: '',
+                  url: ''
+               }
             });
          }).catch(function (err) {
             alert('Error: ' + err.message);
@@ -374,6 +528,8 @@ var Sidebar = function (_Component) {
    }, {
       key: 'render',
       value: function render() {
+         var feeds = this.props.feed.all || [];
+
          return _react2.default.createElement(
             'div',
             { id: 'sidebar' },
@@ -386,9 +542,9 @@ var Sidebar = function (_Component) {
                   _react2.default.createElement(
                      'form',
                      { method: 'post', action: '#' },
-                     _react2.default.createElement('input', { type: 'text', name: 'query', onChange: this.updateFeed.bind(this, 'name'), id: 'query', placeholder: 'Feed Name' }),
+                     _react2.default.createElement('input', { type: 'text', name: 'query', value: this.state.feed.name, onChange: this.updateFeed.bind(this, 'name'), id: 'query', placeholder: 'Feed Name' }),
                      _react2.default.createElement('br', null),
-                     _react2.default.createElement('input', { type: 'text', name: 'query', onChange: this.updateFeed.bind(this, 'url'), id: 'query', placeholder: 'Feed Url' }),
+                     _react2.default.createElement('input', { type: 'text', name: 'query', value: this.state.feed.url, onChange: this.updateFeed.bind(this, 'url'), id: 'query', placeholder: 'Feed Url' }),
                      _react2.default.createElement('br', null),
                      _react2.default.createElement(
                         'button',
@@ -412,7 +568,7 @@ var Sidebar = function (_Component) {
                   _react2.default.createElement(
                      'ul',
                      null,
-                     this.state.feeds.map(function (feed, i) {
+                     feeds.map(function (feed, i) {
                         return _react2.default.createElement(
                            'li',
                            { key: feed._id },
@@ -433,11 +589,28 @@ var Sidebar = function (_Component) {
    return Sidebar;
 }(_react.Component);
 
-exports.default = Sidebar;
+var stateToProps = function stateToProps(state) {
+   return {
+      feed: state.feed
+   };
+};
+
+var dispatchToProps = function dispatchToProps(dispatch) {
+   return {
+      fetchFeeds: function fetchFeeds(params) {
+         return dispatch(_actions2.default.fetchFeeds(params));
+      },
+      createFeed: function createFeed(params) {
+         return dispatch(_actions2.default.createFeed(params));
+      }
+   };
+};
+
+exports.default = (0, _reactRedux.connect)(stateToProps, dispatchToProps)(Sidebar);
 
 /***/ }),
 
-/***/ 45:
+/***/ 47:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -448,7 +621,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Sidebar = undefined;
 
-var _Sidebar = __webpack_require__(44);
+var _Sidebar = __webpack_require__(46);
 
 var _Sidebar2 = _interopRequireDefault(_Sidebar);
 
@@ -458,7 +631,7 @@ exports.Sidebar = _Sidebar2.default;
 
 /***/ }),
 
-/***/ 46:
+/***/ 48:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -474,7 +647,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _presentations = __webpack_require__(45);
+var _presentations = __webpack_require__(47);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -560,7 +733,7 @@ exports.default = Home;
 
 /***/ }),
 
-/***/ 47:
+/***/ 49:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -571,7 +744,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Home = undefined;
 
-var _Home = __webpack_require__(46);
+var _Home = __webpack_require__(48);
 
 var _Home2 = _interopRequireDefault(_Home);
 
@@ -581,7 +754,7 @@ exports.Home = _Home2.default;
 
 /***/ }),
 
-/***/ 57:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -591,15 +764,15 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(55);
+var _reactDom = __webpack_require__(57);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _pages = __webpack_require__(47);
+var _pages = __webpack_require__(49);
 
-var _reactRedux = __webpack_require__(19);
+var _reactRedux = __webpack_require__(11);
 
-var _stores = __webpack_require__(24);
+var _stores = __webpack_require__(25);
 
 var _stores2 = _interopRequireDefault(_stores);
 
