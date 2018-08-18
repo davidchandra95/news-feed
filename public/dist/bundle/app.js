@@ -130,14 +130,14 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push([33,0]);
+/******/ 	deferredModules.push([57,0]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 14:
+/***/ 20:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -164,7 +164,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 15:
+/***/ 21:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -174,7 +174,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _constants = __webpack_require__(14);
+var _constants = __webpack_require__(20);
 
 var _constants2 = _interopRequireDefault(_constants);
 
@@ -221,7 +221,7 @@ exports.default = function () {
 
 /***/ }),
 
-/***/ 16:
+/***/ 22:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -232,7 +232,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.userReducer = undefined;
 
-var _userReducer = __webpack_require__(15);
+var _userReducer = __webpack_require__(21);
 
 var _userReducer2 = _interopRequireDefault(_userReducer);
 
@@ -245,7 +245,7 @@ exports.userReducer = _userReducer2.default; /* * * * * * * * * * * * * * * * * 
 
 /***/ }),
 
-/***/ 18:
+/***/ 24:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -255,13 +255,13 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _redux = __webpack_require__(3);
+var _redux = __webpack_require__(7);
 
-var _reduxThunk = __webpack_require__(17);
+var _reduxThunk = __webpack_require__(23);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _reducers = __webpack_require__(16);
+var _reducers = __webpack_require__(22);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -300,7 +300,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 22:
+/***/ 44:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -312,11 +312,169 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _presentations = __webpack_require__(35);
+var _turbo = __webpack_require__(43);
+
+var _turbo2 = _interopRequireDefault(_turbo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Sidebar = function (_Component) {
+   _inherits(Sidebar, _Component);
+
+   function Sidebar() {
+      _classCallCheck(this, Sidebar);
+
+      var _this = _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).call(this));
+
+      _this.state = {
+         feed: {
+            name: '',
+            url: ''
+         },
+         feeds: []
+      };
+      return _this;
+   }
+
+   _createClass(Sidebar, [{
+      key: 'updateFeed',
+      value: function updateFeed(field, event) {
+         var feed = Object.assign({}, this.state.feed);
+         feed[field] = event.target.value;
+         this.setState({ feed: feed });
+      }
+   }, {
+      key: 'addFeed',
+      value: function addFeed(event) {
+         var _this2 = this;
+
+         event.preventDefault();
+
+         var turboClient = (0, _turbo2.default)({ site_id: '5b782b9794fc4b0014aeab94' });
+         turboClient.create('feed', this.state.feed).then(function (data) {
+            var feeds = Object.assign([], _this2.state.feeds);
+            feeds.push(data);
+            _this2.setState({
+               feeds: feeds
+            });
+         }).catch(function (err) {
+            alert('Error: ' + err.message);
+         });
+      }
+   }, {
+      key: 'render',
+      value: function render() {
+         return _react2.default.createElement(
+            'div',
+            { id: 'sidebar' },
+            _react2.default.createElement(
+               'div',
+               { className: 'inner' },
+               _react2.default.createElement(
+                  'section',
+                  { id: 'search', className: 'alt' },
+                  _react2.default.createElement(
+                     'form',
+                     { method: 'post', action: '#' },
+                     _react2.default.createElement('input', { type: 'text', name: 'query', onChange: this.updateFeed.bind(this, 'name'), id: 'query', placeholder: 'Feed Name' }),
+                     _react2.default.createElement('br', null),
+                     _react2.default.createElement('input', { type: 'text', name: 'query', onChange: this.updateFeed.bind(this, 'url'), id: 'query', placeholder: 'Feed Url' }),
+                     _react2.default.createElement('br', null),
+                     _react2.default.createElement(
+                        'button',
+                        { onClick: this.addFeed.bind(this) },
+                        'Add Feed'
+                     )
+                  )
+               ),
+               _react2.default.createElement(
+                  'nav',
+                  { id: 'menu' },
+                  _react2.default.createElement(
+                     'header',
+                     { className: 'major' },
+                     _react2.default.createElement(
+                        'h2',
+                        null,
+                        'My Feeds'
+                     )
+                  ),
+                  _react2.default.createElement(
+                     'ul',
+                     null,
+                     this.state.feeds.map(function (feed, i) {
+                        return _react2.default.createElement(
+                           'li',
+                           { key: feed._id },
+                           _react2.default.createElement(
+                              'a',
+                              { href: '#' },
+                              feed.name
+                           )
+                        );
+                     })
+                  )
+               )
+            )
+         );
+      }
+   }]);
+
+   return Sidebar;
+}(_react.Component);
+
+exports.default = Sidebar;
+
+/***/ }),
+
+/***/ 45:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+   value: true
+});
+exports.Sidebar = undefined;
+
+var _Sidebar = __webpack_require__(44);
+
+var _Sidebar2 = _interopRequireDefault(_Sidebar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.Sidebar = _Sidebar2.default;
+
+/***/ }),
+
+/***/ 46:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+   value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _presentations = __webpack_require__(45);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -402,7 +560,7 @@ exports.default = Home;
 
 /***/ }),
 
-/***/ 23:
+/***/ 47:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -413,7 +571,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Home = undefined;
 
-var _Home = __webpack_require__(22);
+var _Home = __webpack_require__(46);
 
 var _Home2 = _interopRequireDefault(_Home);
 
@@ -423,25 +581,25 @@ exports.Home = _Home2.default;
 
 /***/ }),
 
-/***/ 33:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(31);
+var _reactDom = __webpack_require__(55);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _pages = __webpack_require__(23);
+var _pages = __webpack_require__(47);
 
-var _reactRedux = __webpack_require__(13);
+var _reactRedux = __webpack_require__(19);
 
-var _stores = __webpack_require__(18);
+var _stores = __webpack_require__(24);
 
 var _stores2 = _interopRequireDefault(_stores);
 
@@ -454,179 +612,6 @@ var App = _react2.default.createElement(
 );
 
 _reactDom2.default.render(App, document.getElementById('root'));
-
-/***/ }),
-
-/***/ 35:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-   value: true
-});
-exports.Sidebar = undefined;
-
-var _Sidebar = __webpack_require__(36);
-
-var _Sidebar2 = _interopRequireDefault(_Sidebar);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Sidebar = _Sidebar2.default;
-
-/***/ }),
-
-/***/ 36:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-   value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Sidebar = function (_Component) {
-   _inherits(Sidebar, _Component);
-
-   function Sidebar() {
-      _classCallCheck(this, Sidebar);
-
-      return _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).apply(this, arguments));
-   }
-
-   _createClass(Sidebar, [{
-      key: "render",
-      value: function render() {
-         return _react2.default.createElement(
-            "div",
-            { id: "sidebar" },
-            _react2.default.createElement(
-               "div",
-               { className: "inner" },
-               _react2.default.createElement(
-                  "section",
-                  { id: "search", className: "alt" },
-                  _react2.default.createElement(
-                     "form",
-                     { method: "post", action: "#" },
-                     _react2.default.createElement("input", { type: "text", name: "query", id: "query", placeholder: "Search" })
-                  )
-               ),
-               _react2.default.createElement(
-                  "nav",
-                  { id: "menu" },
-                  _react2.default.createElement(
-                     "header",
-                     { className: "major" },
-                     _react2.default.createElement(
-                        "h2",
-                        null,
-                        "My Feeds"
-                     )
-                  ),
-                  _react2.default.createElement(
-                     "ul",
-                     null,
-                     _react2.default.createElement(
-                        "li",
-                        null,
-                        _react2.default.createElement(
-                           "a",
-                           { href: "index.html" },
-                           "Hacker News"
-                        )
-                     ),
-                     _react2.default.createElement(
-                        "li",
-                        null,
-                        _react2.default.createElement(
-                           "a",
-                           { href: "generic.html" },
-                           "NY Daily News Sports"
-                        )
-                     ),
-                     _react2.default.createElement(
-                        "li",
-                        null,
-                        _react2.default.createElement(
-                           "a",
-                           { href: "elements.html" },
-                           "Elements"
-                        )
-                     ),
-                     _react2.default.createElement(
-                        "li",
-                        null,
-                        _react2.default.createElement(
-                           "a",
-                           { href: "#" },
-                           "Etiam Dolore"
-                        )
-                     ),
-                     _react2.default.createElement(
-                        "li",
-                        null,
-                        _react2.default.createElement(
-                           "a",
-                           { href: "#" },
-                           "Adipiscing"
-                        )
-                     ),
-                     _react2.default.createElement(
-                        "li",
-                        null,
-                        _react2.default.createElement(
-                           "a",
-                           { href: "#" },
-                           "Maximus Erat"
-                        )
-                     ),
-                     _react2.default.createElement(
-                        "li",
-                        null,
-                        _react2.default.createElement(
-                           "a",
-                           { href: "#" },
-                           "Sapien Mauris"
-                        )
-                     ),
-                     _react2.default.createElement(
-                        "li",
-                        null,
-                        _react2.default.createElement(
-                           "a",
-                           { href: "#" },
-                           "Amet Lacinia"
-                        )
-                     )
-                  )
-               )
-            )
-         );
-      }
-   }]);
-
-   return Sidebar;
-}(_react.Component);
-
-exports.default = Sidebar;
 
 /***/ })
 
